@@ -1,0 +1,130 @@
+s<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        body
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url("cofee.jpg");
+        }
+        .container
+        {
+            width: 350px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+        }
+        h1
+        {
+            margin-bottom: 25px;
+            font-size: 32px;
+        }
+        .input-box 
+        {
+            margin-bottom: 20px;
+        }
+        .input-box input
+        {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+            font-size: 16px;
+        }
+        .options
+        {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .options a
+        {
+            color: white;
+            text-decoration: none;
+        }
+        .options a:hover
+        {
+            text-decoration: underline;
+        }
+        button
+        {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background: #8B4513;
+            color: white;
+            font-size: 18PX;
+            cursor: pointer;
+        }
+        button:hover
+        {
+            background: #5c3317;
+        }
+        .signup
+        {
+            margin-top: 20px;
+            font-size: 15px;
+        }
+        .signup a
+        {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Login</h1>
+
+    <div class="input-box">
+        <input type="text" id="username" placeholder="Username">
+    </div>
+
+    <div class="input-box">
+        <input type="password" id="password" placeholder="Password">
+    </div>
+
+    <div class="options">
+        <label>
+            <input type="checkbox"> Remember Me
+        </label>
+        <a href="#">Forgot Password?</a>
+    </div>
+
+    <div class="signup">
+        Don't have an account?
+        <a href="signup.html">Sign Up</a>
+    </div>
+
+    <button type="button" onclick="log()">Login</button>
+</div>
+
+<script>
+function log() {
+    
+        window.location.href = "home.html";
+    
+}
+</script>
+    
+</body>
+</html>

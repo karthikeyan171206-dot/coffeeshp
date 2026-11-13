@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review Order</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body
+{
+    background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+}
+.container
+{
+    width:410px;
+    min-height:100vh;
+    background:#fff;
+    padding:20px;
+    position:relative;
+}
+.header
+{
+    display:flex;
+    align-items:center;
+    margin-bottom:20px;
+}
+.back
+{
+    font-size:30px;
+    color:#8B4513;
+    cursor:pointer;
+}
+.title
+{
+    margin-left:20px;
+    font-size:28px;
+    font-weight:bold;
+}
+.card
+{
+    display:flex;
+    background:#F3EEE7;
+    border-radius:20px;
+    padding:12px;
+}
+.card img
+{
+    width:170px;
+    height:130px;
+    border-radius:15px;
+    object-fit:cover;
+}
+.details
+{
+    margin-left:15px;
+    flex:1;
+}
+.details h2
+{
+    font-size:24px;
+    margin-bottom:10px;
+}
+.details p
+{
+    font-size:18px;
+    margin-bottom:15px;
+}
+.row
+{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+    font-size:20px;
+    font-weight:bold;
+}
+.qty
+{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.qty button
+{
+    width:30px;
+    height:30px;
+    border:none;
+    border-radius:50%;
+    background:#8B4513;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
+.qty span
+{
+    font-size:20px;
+    margin:0 10px;
+}
+.summary
+{
+    margin-top:50px;
+}
+.line
+{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:30px;
+}
+.line h2
+{
+    font-size:24px;
+}
+.line span
+{
+    font-size:24px;
+    font-weight:bold;
+}
+.address
+{
+    margin-top:20px;
+}
+.address h3
+{
+    margin-bottom:10px;
+}
+.address p
+{
+    font-size:20px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<div class="back" onclick="history.back()">❮</div>
+<div class="title">Review Order</div>
+</div>
+<div class="card">
+<img src="coffee2.png" alt="Coffee">
+<div class="details">
+<h2>Cappuccino</h2>
+<p>With Oat Milk</p>
+<div class="row">
+<span>⭐ 4.5</span>
+<span>$3.50</span>
+</div>
+<div class="qty">
+<div>Size : S</div>
+<div>
+<button onclick="minus()">-</button>
+<span id="count">2</span>
+<button onclick="plus()">+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="summary">
+<div class="line">
+<h2>Total:</h2>
+<span id="total">$7.60</span>
+</div>
+<div class="line">
+<h2>Shipping Charges:</h2>
+<span>$0.00</span>
+</div>
+<div class="address">
+<h3>Address</h3>
+<p>23/6 A New York<br>USA</p>
+</div>
+</div>
+<div class="bottom-bar">
+<div class="total-box">
+<h2>Total</h2>
+<p id="bottomTotal">$7.60</p>
+</div>
+<button class="place-btn" onclick="placeOrder()">
+Place Order
+</button>
+</div>
+</div>
+<script>
+let quantity = 2;
+let price = 3.80;
+function updateTotal()
+{
+let total = (quantity * price).toFixed(2);
+document.getElementById("count").innerHTML = quantity;
+document.getElementById("total").innerHTML = "$" + total;
+document.getElementById("bottomTotal").innerHTML = "$" + total;
+}
+function plus()
+{
+quantity++;
+updateTotal();
+}
+function minus()
+{
+if(quantity > 1)
+{
+quantity--;
+updateTotal();
+}
+}
+function placeOrder()
+{
+window.location.href="payment.html";
+}
+updateTotal();
+</script>
+<style>
+.bottom-bar
+{
+position:fixed;
+bottom:0;
+width:370px;
+height:90px;
+background:#EFE7D9;
+display:flex;
+justify-content:space-between;
+align-items:auto;
+padding:20px;
+border-radius:20px 20px 0 0;
+box-shadow:0 -2px 10px rgba(0,0,0,0.15);
+}
+.total-box h2
+{
+font-size:24px;
+}
+.total-box p
+{
+font-size:20px;
+font-weight:bold;
+margin-top:5px;
+}
+.place-btn
+{
+width:180px;
+height:50px;
+border:none;
+border-radius:30px;
+background:#7B3F00;
+color:white;
+font-size:22px;
+cursor:pointer;
+}
+.place-btn:hover
+{
+background:#5A2E00;
+}
+</style>
+</body>
+</html>
